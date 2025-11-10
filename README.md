@@ -45,8 +45,8 @@ You can send the PIN via UART from RP2, and it will be sent to RP2040. RP2040 ha
 
 ## Requirements
 
-  - Rapsberry PI (I use RP2 model B)
-    - Raspbian (Bulluseye)
+  - Raspberry PI (I use RP2 model B)
+    - Raspbian (Bullseye)
     - pigpiod (for S/W UART)
   
   - RP2040
@@ -67,4 +67,4 @@ You can send the PIN via UART from RP2, and it will be sent to RP2040. RP2040 ha
 ## Limitations
 
    - RP2B and RP2040 cannot know when they can start sending the PIN, it means you need to input the PIN as soon as PC is up. Sometimes BitLocker is timed out and PC is turned power off.
-   - Software UART is quite unstable, it receives some noises sometimes from surrunded systems, and it inputs strange Keycode oftenly. If necessary you can disable it and use only Hardware UART. I have never tested but RP4 has many Hardware UART (several Mini UART), it would be possible to replace the current Software UART with Hardware UART in case other RPs.
+   - Software UART is quite unstable, it receives some noises sometimes from surrounded systems, and it inputs strange Keycode frequently. If necessary, you can disable it and use only Hardware UART. I have never tested but RP4 has many Hardware UART (several Mini UART), it would be possible to replace the current Software UART with Hardware UART in case other RPs.
