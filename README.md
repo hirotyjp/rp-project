@@ -68,3 +68,4 @@ You can send the PIN via UART from RP2, and it will be sent to RP2040. RP2040 ha
 
    - RP2B and RP2040 cannot know when they can start sending the PIN, it means you need to input the PIN as soon as PC is up. Sometimes BitLocker is timed out and PC is turned power off.
    - Software UART is quite unstable, it receives some noises sometimes from surrounded systems, and it inputs strange Keycode frequently. If necessary, you can disable it and use only Hardware UART. I have never tested but RP4 has many Hardware UART (several Mini UART), it would be possible to replace the current Software UART with Hardware UART in case other RPs.
+   - If you send wrong PIN and fail to unlock, you won't be able to remove the PIN on the screen, because this program cannot support to send `DEL` or `BS` key currently. As a result, you may need to wait until PC is powered off by timeout. 
