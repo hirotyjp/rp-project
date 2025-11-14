@@ -1,7 +1,7 @@
-# Remote Bitlocker PIN unlocker
+# Remote BitLocker PIN Unlocker
 
-This project is to unlock Bitlcoker PIN remotely, using RP2 and RP2040.
-You can send the PIN via UART from RP2, and it will be sent to RP2040. RP2040 have to be connected to PC, and it inputs the PIN as USB Keyboard.
+This project provides a way to unlock a BitLocker-protected PC remotely using a Raspberry Pi 2 and an RP2040.
+The Raspberry Pi 2 sends the PIN to the RP2040 over UART, and the RP2040—connected to the target PC—acts as a USB keyboard to input the PIN automatically.
 
 ## Connections
 
@@ -66,6 +66,9 @@ You can send the PIN via UART from RP2, and it will be sent to RP2040. RP2040 ha
 
 ## Limitations
 
-   - RP2B and RP2040 cannot know when they can start sending the PIN, it means you need to input the PIN as soon as PC is up. Sometimes BitLocker is timed out and PC is turned power off.
-   - Software UART is quite unstable, it receives some noises sometimes from surrounded systems, and it inputs strange Keycode frequently. If necessary, you can disable it and use only Hardware UART. I have never tested but RP4 has many Hardware UART (several Mini UART), it would be possible to replace the current Software UART with Hardware UART in case other RPs.
-   - If you send wrong PIN and fail to unlock, you won't be able to remove the PIN on the screen, because this program cannot support to send `DEL` or `BS` key currently. As a result, you may need to wait until PC is powered off by timeout. 
+   - RP2B and RP2040 cannot detect when to start sending the PIN.
+     This means the PIN must be sent immediately after the PC powers on. In some cases, BitLocker may time out and force the PC to power off before the PIN is entered.
+   - Software UART is unstable.
+     It sometimes receives noise from nearby systems, causing incorrect keycodes to be sent. If needed, you can disable the software UART and use only the hardware UART. I have not tested it, but the Raspberry Pi 4 has multiple hardware UART interfaces (including several Mini UARTs), so replacing the current software UART with a hardware UART should be possible on other Pi models.
+   - Entering a wrong PIN cannot be corrected.
+     If an incorrect PIN is sent and BitLocker rejects it, you cannot delete the input because this program currently does not support DEL or Backspace keys. As a result, you may need to wait until the PC powers off due to timeout.
