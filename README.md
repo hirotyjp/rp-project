@@ -75,5 +75,5 @@ The Raspberry Pi 2 sends the PIN to the RP2040 over UART, and the RP2040—conne
 
 ## Issues
 
-   - After a few weeks since I setup the system, I have found that RP2040 was stuck with something and keeping a red LED bilinking. It became no longer receive any command and didn't send any PIN as well. The root cause is still unkown, but I suspect that an unexpected shutdown for PC causes the issue. I tried to disable the USB mass-storage by `boot.by` just in case, and still investigating.
-   - If disabling USB mass-storage cannot solve the issue, sending force Reset command to RP2040 would be one of the solution. But RP2040 Pico Zero I bought doesn't have GPIO30, RUN PIN. So I will need to connect the wire to the physical Reset Button with soldering. It might be a bit challenging as that button is very small.  
+   - After a few weeks since I setup the system, I have found that RP2040 was stuck with something and keeping a red LED blinking. It became no longer receive any command and didn't send any PIN as well. The root cause is still unknown, but I suspect that an unexpected shutdown for PC causes the issue. I tried to disable the USB mass-storage by `boot.by` just in case, and still investigating.
+   - If disabling USB mass-storage cannot solve the issue, sending force Reset command to RP2040 would be one of the solutions. But RP2040 Pico Zero I bought doesn't have GPIO30, RUN PIN. So I will need to connect the wire to the physical Reset Button with soldering. It might be a bit challenging as that button is very small.  
